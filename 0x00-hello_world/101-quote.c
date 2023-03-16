@@ -1,7 +1,8 @@
-#include<stdio>
-#include<unistd>
+#include <stdio.h>
+#include <unistd.h>
+
 /**
-* main - Working with Unix
+* main - Entry point
 *
 * Return: Always 1 (Success)
 */
