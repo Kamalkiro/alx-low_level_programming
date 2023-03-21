@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * print_alphabets - To print from a to z
+ * print_alphabet - To print from a to z
  *
  */
-void print_alphabets(void)
+void print_alphabet(void)
 	{
 		char letter;
 
