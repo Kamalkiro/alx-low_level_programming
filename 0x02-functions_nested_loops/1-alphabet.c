@@ -1,21 +1,17 @@
 #include "main.h"
-
-
 /**
- * main - pinting alphabets
- * Return 0
+ * print_alphabets - To print from a to z
+ *
+ * Return Always 0
  */
+void print_alphabets(void)
+	{
+		char letter;
 
 
-void print_alphabet(void)
-{
-	char letter;
-
-
-	for (letter = 'a'; letter <= 'z'; letter++)
+		for (letter = 'a'; letter <= 'z'; letter++)
 			_putchar(letter);
 
 
-	_putchar('\n');
-}
-
+		_putchar('\n');
+	}
