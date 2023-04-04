@@ -6,7 +6,7 @@
  * @n:number of bytes
  * Return:array with new values
  */
-char*_memset(char*s,char b,unsigned int n)
+char *_memset(char *s, char b, unsigned int n)
 {
 	int i = 0;
 
