@@ -28,7 +28,7 @@ int _strlen_recursion(char *s)
 		return (0);
 	}
 	s++;
-	return (_strlen_recursion(s));
+	return (_strlen_recursion(s) + 1);
 }
 
 /**
@@ -40,10 +40,9 @@ int _strlen_recursion(char *s)
  */
 int palindrom_checker(char *s, int n, int m)
 {
-	if (*(s + n) == *(s + m - 1))
+	if (*(s + n) != *(s + m - 1))
 		return (0);
 	if (n >= m)
-	return (1);
-n++;
-return (palindrom_checker(s, n, m - 1));
+		return (1);
+return (palindrom_checker(s, n + 1, m - 1));
 }
