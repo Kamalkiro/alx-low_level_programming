@@ -15,7 +15,7 @@ char *create_array(unsigned int size, char c)
 	{
 		return ("NULL\n");
 	}
-	point = malloc(sizeof(char) * size + 1);
+	point = malloc(sizeof(char) * size);
 
 	if (point == NULL)
 	{
