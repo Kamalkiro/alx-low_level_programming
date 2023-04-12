@@ -23,10 +23,10 @@ char *create_array(unsigned int size, char c)
 	}
 	for (i = 0; i < size;)
 	{
-		i++;
 		point[i] = c;
+		i++;
 	}
-	point[size] = '\0';
+	point[size - 1] = '\0';
 
 	return (point);
 }
