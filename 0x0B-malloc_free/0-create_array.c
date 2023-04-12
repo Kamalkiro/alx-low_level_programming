@@ -15,7 +15,7 @@ char *create_array(unsigned int size, char c)
 	{
 		return ("NULL\n");
 	}
-	point = malloc(sizeof(char) * size);
+	point = malloc(sizeof(char) * size + 1);
 
 	if (point == NULL)
 	{
@@ -26,7 +26,7 @@ char *create_array(unsigned int size, char c)
 		point[i] = c;
 		i++;
 	}
-	point[size - 1] = c;
+	point[size] = '\0';
 
 	return (point);
 }
