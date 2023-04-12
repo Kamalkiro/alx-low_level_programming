@@ -8,25 +8,14 @@
  */
 char *create_array(unsigned int size, char c)
 {
-	char *point;
-	unsigned int i = 0;
+        char *point;
+        unsigned int i;
 
-	if (size == 0)
-	{
-		return ("NULL\n");
-	}
-	point = malloc(sizeof(char) * size);
+         point = malloc(sizeof(char) * size);
+    if (size == 0 || point == NULL)
+        return (NULL);
 
-	if (point == NULL)
-	{
-		return ("NULL\n");
-	}
-	for (i = 0; i < size;)
-	{
-		point[i] = c;
-		i++;
-	}
-	point[size] = '\0';
-
-	return (point);
+    for (i = 0; i < size; i++)
+        point[i] = c;
+    return (point);
 }
