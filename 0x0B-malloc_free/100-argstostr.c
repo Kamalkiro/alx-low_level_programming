@@ -19,10 +19,10 @@ char *argstostr(int ac, char **av)
 
 	y = 0;
 	for (i = 0; i < ac; i++)
-	{
+	{	
 	y += strlen(av[i]) + 1;
 	}
-
+	y++;
 	spoint = malloc(sizeof(char) * y);
 	if (spoint == NULL)
 	{
