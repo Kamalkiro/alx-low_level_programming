@@ -42,22 +42,3 @@ char *argstostr(int ac, char **av)
 
 	return (spoint);
 }
-
-/**
- * test - testing
- * @argc: number of command line
- * @argv: pointer
- * Return: points using printf (I think printf is allowed for this one)
- */
-int test(int argc, char **argv)
-{
-	char *spoint = argstostr(argc - 1, argv + 1);
-
-	if (spoint == NULL)
-		return (1);
-
-	printf("%s", spoint);
-
-	free(spoint);
-	return (0);
-}
