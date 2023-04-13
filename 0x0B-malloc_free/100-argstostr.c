@@ -33,12 +33,10 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; j < strlen(av[i]); j++)
-		{
 			spoint[x++] = av[i][j];
-		}
 		spoint[x++] = '\n';
 	}
-	spoint[x - 1] = ('\0');
+	spoint[x] = '\0';
 
 	return (spoint);
 }
