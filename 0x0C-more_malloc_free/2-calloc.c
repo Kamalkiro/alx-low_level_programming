@@ -26,5 +26,4 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		x++;
 	}
 	return (point);
-
 }
