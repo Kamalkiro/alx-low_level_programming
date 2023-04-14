@@ -32,12 +32,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	old_point = ptr;
 	if (new_size < old_size)
 	{
-			point1[x] = old_point[x];
+		point1[x] = old_point[x];
 	}
 	if (new_size > old_size)
 	{
 		for (x = 0; x < old_size; x++)
+		{
 			point1[x] = old_point[x];
+		}
 	}
 	free(ptr);
 	return (point1);
