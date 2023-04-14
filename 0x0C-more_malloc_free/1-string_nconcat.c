@@ -27,7 +27,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		point[i] = s1[1];
 	}
-	for (j = 0; j < n && s2[j]; i++, j++)
+	for (j = 0; n >= y && i < (x + y); i++, j++)
 	{
 		point[i] = s2[j];
 	}
