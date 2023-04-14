@@ -22,14 +22,17 @@ void _puts(char *str)
 int _atoi(const char *s)
 {
 	int minus = 1;
-	unsigned long ret = 0; 
+	unsigned long ret = 0;
 	int n1 = 0, i = 0;
 
-	for (n1 = 0; !((s[n1]) >= 48 && s[n1] <= 59); n1++)
+	while (!((s[n1]) >= 48 && s[n1] <= 57))
+	{
 		if (s[n1] == '-')
 		{
 			minus *= -1;
 		}
+		n1++;
+	}
 	for (i = n1; s[i] >= 48 && s[i] <= 57; i++)
 	{
 		ret *= 10;
@@ -46,10 +49,9 @@ void print_int(unsigned long n)
 {
 	unsigned long iter = 1, i = 0, ret;
 
-	while (n / iter > 9)
+	for (i = 0; n / iter > 9; i++)
 	{
 		iter *= 10;
-		i++;
 	}
 	for (; iter >= 1; n %= iter, iter /= 10)
 	{
