@@ -17,7 +17,7 @@ int _strlen(char *string)
 	return (i);
 }
 /**
- * *_strcpy - copying the string 
+ * _strcpy - copying the string
  * @dest: pointer
  * @src: string
  * Return: the pointer to dest
