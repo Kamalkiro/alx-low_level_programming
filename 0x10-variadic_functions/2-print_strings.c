@@ -20,17 +20,17 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	}
 	va_start(i, n);
 	for (n1 = n; n1 > 0; n1--)
-		{
-			point = va_arg(i, char *);
+	{
+		point = va_arg(i, char *);
 
-			if (point != NULL)
-				printf("%s", point);
-			else
-				printf("(nil)");
+		if (point != NULL)
+			printf("%s", point);
+		else
+			printf("(nil)");
 
-			if (separator != NULL && n1 != 1)
-				printf("%s", separator);
-		}
+		if (separator != NULL && n1 != 1)
+			printf("%s", separator);
+	}
 	printf("\n");
 
 	va_end(i);
