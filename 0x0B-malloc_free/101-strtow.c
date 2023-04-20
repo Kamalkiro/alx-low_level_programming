@@ -30,7 +30,7 @@ int wrdcnt(char *s)
  */
 char **strtow(char *str)
 {
-	int x = 0, y, z, i, j = 0, ln = 0;
+	int x = 0, y = 0, z = 0, i = 0, j = 0, ln = 0;
 	char **pt;
 
 	if (str == NULL || *str == '\0')
@@ -38,7 +38,7 @@ char **strtow(char *str)
 	j = wrdcnt(str);
 	if (j == 1)
 		return (NULL);
-	pt = (char **)malloc(j * sizeof(char *));
+	pt = malloc((j + 1) * sizeof(char *));
 	if (pt == NULL)
 		return (NULL);
 	pt[j - 1] = NULL;
