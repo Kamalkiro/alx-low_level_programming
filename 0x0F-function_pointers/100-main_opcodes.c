@@ -2,15 +2,14 @@
 #include <stdio.h>
 /**
  * main - printing opcodes
- * @argc: num of array
+ * @argc: num of arrajy
  * @argv: array
  * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	int num, x = 0;
-	int (*fp)(int, char **) = main;
-	unsigned char res;
+	int num;
+	char *fp = (char *)main;
 
 	num = atoi(argv[1]);
 
@@ -20,14 +19,9 @@ int main(int argc, char *argv[])
 		exit(1);
 	if (num < 0)
 		exit(2);
-	while (x < num)
+	for (; num--; )
 	{
-		res = *(unsigned char *)fp;
-		printf("%.2x", res);
-		printf(" ");
-		fp++;
-		x++;
+		printf("%02hhx%s", *fp++, num ? " " : "\n");
 	}
-	printf("\n");
 	return (0);
 }
