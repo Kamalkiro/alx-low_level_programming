@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
 	char *fp = (char *)main;
 
 	num = atoi(argv[1]);
-	if (argc != 2 || num < 0)
+	if (argc < 2 || argc > 2 || num < 0)
 		printf("Error\n");
-	if (argc != 2)
+	if (argc < 2 || argc > 2)
 		exit(1);
 	if (num < 0)
 		exit(2);
