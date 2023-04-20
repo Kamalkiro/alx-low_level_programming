@@ -11,8 +11,6 @@ int main(int argc, char *argv[])
 	int num;
 	char *fp = (char *)main;
 
-	if (argc == '\0')
-		printf("Error'\n'"),exit(1);
 	num = atoi(argv[1]);
 	if (argc < 2 || argc > 2 || num < 0)
 		printf("Error'\n'");
@@ -21,9 +19,7 @@ int main(int argc, char *argv[])
 	if (num < 0)
 		exit(2);
 
-	for (; num--; )
-	{
+	while (num--)
 		printf("%02hhx%s", *fp++, num ? " " : "\n");
-	}
 	return (0);
 }
