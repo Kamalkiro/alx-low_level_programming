@@ -47,7 +47,8 @@ char **strtow(char *str)
 		if (str[x] != ' ' && (x == 0 || str[x - 1] == ' '))
 		{
 			for (y = 0; str[x + y] != ' ' && str[x + y]; y++)
-				pt[ln] = (char *)malloc(y * (sizeof(char)));
+				;
+			pt[ln] = (char *)malloc(y * (sizeof(char)));
 			if (pt[ln] == NULL)
 			{
 				for (z = 0; z < ln; z++)
