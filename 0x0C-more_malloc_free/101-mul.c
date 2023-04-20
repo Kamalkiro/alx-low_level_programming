@@ -1,77 +1,144 @@
-#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-/**
- * _puts - printing string
- * @str: pointer
- * Return: void
- */
-void _puts(char *str)
-{
-	int i;
+#include "main.h"
 
-	for (i = 0; str[i]; i++)
-		_putchar(str[i]);
+/**
+ * _atoi_digit - converting char to integer.
+ * @x: character.
+ * Return: integer.
+ **/
+int _atoi_digit(char x)
+{
+	unsigned int r;
+
+	if (x <= '9' && x >= '0')
+		r = x - '0';
+	return (r);
 }
 /**
- * _atoi - converting string to int
- * @s: char
- * Return: int
- */
-int _atoi(const char *s)
+ * _isNumber - check if num.
+ * @argv: Pointer.
+ * Return: 0.
+ **/
+int _isNumber(char *argv)
 {
-	int minus = 1;
-	unsigned long int ret = 0, n1 = 0, i = 0;
+	int x;
 
-	while (!((s[n1]) >= 48 && s[n1] <= 57))
+	for (x = 0; argv[x]; x++)
+		if (argv[x] < 48 || argv[x] > 57)
+			return (1);
+	return (0);
+}
+/**
+ *_calloc - allocating array.
+ * @nmemb: number.
+ * @size: size.
+ * Return: pointer.
+ **/
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	char *ptr;
+	unsigned int x;
+
+	ptr = malloc(size * nmemb);
+
+	if (ptr == NULL)
+		return (NULL);
+
+	for (x = 0; x < (size * nmemb); x++)
+		ptr[x] = '0';
+
+	return (ptr);
+}
+/**
+ * mul_array - multiplying.
+ * @a1: array.
+ * @len1: length.
+ * @a2: array.
+ * @a3: array.
+ * @len3: length.
+ * Return: pointer.
+ **/
+void *mul_array(char *a1, int len1, char a2, char *a3, int len3)
+{
+	int m = 0, x, z;
+
+	z = len3;
+	for (x = len1 - 1; x >= 0 ; x--)
 	{
-		if (s[n1] == '-')
+		m += (a1[x] - '0') * (a2 - '0') + (a3[z] - '0');
+		a3[z] = (m % 10) + '0';
+		m /= 10;
+		z--;
+	}
+
+		while (m != 0)
 		{
-			minus *= -1;
+			m += a3[z] - '0';
+			a3[z] = (m % 10) + '0';
+			m /= 10;
+			z--;
 		}
-		n1++;
-	}
-	for (i = n1; s[i] >= 48 && s[i] <= 57; i++)
-	{
-		ret *= 10;
-		ret += (s[i] - 48);
-	}
-	return (minus * ret);
+
+	return (a3);
 }
 /**
- * print_int - prints int
- * @n : nummber
- * Return: int
- */
-void print_int(unsigned long n)
+ * print_array - printing array.
+ * @nb: number.
+ * @a: array.
+ **/
+void print_array(char *a, int nb)
 {
-	unsigned long iter = 1, i = 0, ret;
+	int x = 0;
 
-	for (i = 0; n / iter > 9; i++, iter *= 10)
-	;
-
-	for (; iter >= 1; n %= iter, iter /= 10)
+	while (a[x] == '0' && (x + 1) < nb)
 	{
-		ret = n / iter;
-		_putchar('0' + ret);
+		x++;
 	}
+	for (; x < nb; x++)
+	{
+		_putchar(a[x]);
+	}
+	_putchar('\n');
 }
 /**
- * main - multiplies
- * @argc: num
- * @argv: argument
- * Return: 0
+ *main - program that multiplies two positive numbers.
+ *@argc: array length.
+ *@argv: array.
+ *Return: 0.
  */
-int main(int argc, char const *argv[])
+
+int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	int x, c, len1, len2, len3;
+	char E[6] = {'E', 'r', 'r', 'o', 'r', '\n'};
+	char *res;
+
+	if (argc != 3 || _isNumber(argv[1]) == 1 || _isNumber(argv[2]) == 1)
 	{
-		_puts("Error'\n'");
+		for (x = 0; x < 6; x++)
+		{
+			_putchar(E[x]);
+		}
 		exit(98);
 	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
-
+	for (len1 = 0; argv[1][len1]; len1++)
+	;
+	for (len2 = 0; argv[2][len2]; len2++)
+	;
+	len3 = len1 + len2;
+	res = _calloc(len3, sizeof(int));
+	if (res == NULL)
+	{
+		free(res);
+		return (0);
+	}
+	for (x = len2 - 1, c = 0; x >= 0; x--)
+	{
+	res = mul_array(argv[1], len1, argv[2][x], res, (len3 - 1 - c));
+	c++;
+	}
+	print_array(res, len3);
+	free(res);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
