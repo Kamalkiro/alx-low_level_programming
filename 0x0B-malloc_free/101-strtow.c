@@ -38,7 +38,7 @@ char **strtow(char *str)
 	j = wrdcnt(str);
 	if (j == 1)
 		return (NULL);
-	pt = malloc(j * sizeof(char *));
+	pt = malloc(j * sizeof(char *) + 7);
 	if (pt == NULL)
 		return (NULL);
 	pt[j - 1] = NULL;
