@@ -11,9 +11,11 @@ int main(int argc, char *argv[])
 	int num;
 	char *fp = (char *)main;
 
+	if (argc == '\0')
+		printf("Error'\n'"),exit(1);
 	num = atoi(argv[1]);
 	if (argc < 2 || argc > 2 || num < 0)
-		printf("Error\n");
+		printf("Error'\n'");
 	if (argc < 2 || argc > 2)
 		exit(1);
 	if (num < 0)
