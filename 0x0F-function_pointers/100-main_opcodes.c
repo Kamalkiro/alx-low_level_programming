@@ -27,12 +27,9 @@ int main(int argc, char *argv[])
 
 	fp = (char *)main;
 
-	for (x = 0; x < num; x++)
+	for (; num--; )
 	{
-		if (x == num - 1)
-		{
-			printf("%02hhx\n", fp[x]);
-			break;
-		}
+		printf("%02hhx%s", *fp++, num ? " " : "\n");
 	}
+	return (0);
 }
