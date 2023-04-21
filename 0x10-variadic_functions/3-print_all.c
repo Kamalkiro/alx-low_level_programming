@@ -60,7 +60,7 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(arg, format);
-	while (format && format[y])
+	while (format != NULL && format[y] != '\0')
 	{
 		while (choice[x].ch != '\0')
 		{
