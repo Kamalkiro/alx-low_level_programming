@@ -61,6 +61,7 @@ void print_all(const char * const format, ...)
 	va_start(arg, format);
 	while (format && format[y])
 	{
+		x = 0;
 		while (choice[x].ch)
 		{
 			if  (choice[x].ch == format[y])
