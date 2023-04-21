@@ -47,8 +47,7 @@ void stringp(va_list arg)
  */
 void print_all(const char * const format, ...)
 {
-	char *sep = "";
-	int x = 0, y = 0;
+	int x, y = 0;
 	va_list arg;
 
 	variable choice[] = {
@@ -56,8 +55,8 @@ void print_all(const char * const format, ...)
 		{'i', intp},
 		{'f', floatp},
 		{'s', stringp},
-		{'\0', '\0'}
-	};
+		{'\0', '\0'} };
+	char *sep = "";
 
 	va_start(arg, format);
 	while (format && format[y])
@@ -66,9 +65,9 @@ void print_all(const char * const format, ...)
 		{
 			if  (choice[x].ch == format[y])
 			{
-				printf("%s%s", sep, ", ");
+				printf("%s", sep);
 				choice[x].point(arg);
-				sep = "";
+				sep = ", ";
 			}
 			x++;
 		}
