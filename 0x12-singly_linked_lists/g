@@ -1,0 +1,10 @@
+#!/bin/bash
+git add .
+if ("message")
+then
+	git commit -m "message"
+	git push
+else
+	git commit -m "0"
+	git push
+fi
