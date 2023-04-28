@@ -1,8 +1,8 @@
 #include "lists.h"
 /**
- * _putchar - puts characters
+ * exbm - execute before main
  */
-void __attribute__ ((constructor)) _putchar()
+void __attribute__ ((constructor)) exbm()
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");
