@@ -2,7 +2,7 @@ section		.text
 	extern	printf		;Call c function from external lib
 	global	main		;Main is explained below
 main:
-	mov		rdi, Hello	
+	mov		rdi, Hello
 	mov		rax, 0
 	call	printf		;printf called from c lib
 	ret			;Or return
