@@ -12,7 +12,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int f1, f2;
+	int f1 = 0, f2 = 0;
 	ssize_t s;
 	char buff[1024];
 
@@ -33,8 +33,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, ERR_3, argv[2]);
 		exit(99);
 	}
-	f1 = 0;
-	f2 = 0;
 	while ((s = read(f1, buff, 1024)) > 0)
 		if (write(f2, buff, s) != s)
 		{
