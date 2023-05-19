@@ -17,23 +17,23 @@ int main(int argc, char *argv[])
 	char buff[1024];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, ERROR1),exit(97);
+		dprintf(STDERR_FILENO, ERROR1), exit(97);
 	f1 = open(argv[1], O_RDONLY);
 	if (f1 == -1)
-		dprintf(STDERR_FILENO, ERR_2, argv[1]),exit(98);
+		dprintf(STDERR_FILENO, ERR_2, argv[1]), exit(98);
 	f2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
 	if (f2 == -1)
-		dprintf(STDERR_FILENO, ERR_3, argv[2]),exit(99);
+		dprintf(STDERR_FILENO, ERR_3, argv[2]), exit(99);
 	while ((s = read(f1, buff, 1024)) > 0)
 		if (write(f2, buff, s) != s)
-			dprintf(STDERR_FILENO, ERR_3, argv[2]),exit(99);
+			dprintf(STDERR_FILENO, ERR_3, argv[2]), exit(99);
 	if (s == -1)
-		dprintf(STDERR_FILENO, ERR_2, argv[1]),exit(98);
+		dprintf(STDERR_FILENO, ERR_2, argv[1]), exit(98);
 	f1 = close(f1);
 	f2 = close(f2);
 	if (f1 != '\0')
-		dprintf(STDERR_FILENO, ERR_4, f1),exit(100);
+		dprintf(STDERR_FILENO, ERR_4, f1), exit(100);
 	if (f2 != '\0')
-		dprintf(STDERR_FILENO, ERR_4, f1),exit(100);
+		dprintf(STDERR_FILENO, ERR_4, f1), exit(100);
 	return (EXIT_SUCCESS);
 }
