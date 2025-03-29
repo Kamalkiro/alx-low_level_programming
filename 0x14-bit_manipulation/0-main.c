@@ -22,3 +22,18 @@ int main(void)
     printf("%u\n", n);
     return (0);
 }
+unsigned int binary_to_uint(const char *b)
+{
+    int i = 0, ret = 0;
+
+    while (b[i])
+    {
+        if (b[i] != 49 && b[i] != 48)
+        {
+            return 0;
+        }
+        ret = ret * 2 + (b[i] - 48); 
+        i++;
+    }
+    return (ret);
+}

@@ -27,3 +27,17 @@ int main(void)
     free_listint2(&head);
     return (0);
 }
+listint_t *reverse_listint(listint_t **head)
+{
+    listint_t *cp = *head, *new = NULL;
+    
+    while (*head)
+    {
+        cp = (*head)->next;
+        (*head)->next = new;
+        new = *head;
+        *head = cp;
+    }
+    *head = new;
+    return(*head);
+}

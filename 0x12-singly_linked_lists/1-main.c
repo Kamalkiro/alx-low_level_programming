@@ -32,3 +32,13 @@ int main(void)
     free(new);
     return (0);
 }
+size_t list_len(const list_t *h)
+{
+    unsigned int x = 0;
+    while(h)
+    {
+        h = h->next;
+        x++;
+    }
+    return x;
+}

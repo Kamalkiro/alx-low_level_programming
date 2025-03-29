@@ -44,3 +44,32 @@ int main(void)
     print_list(head);
     return (0);
 }
+list_t *add_node_end(list_t **head, const char *str)
+{
+    list_t *new = malloc(sizeof(new)), *tmp = *head;
+    if (!head)
+        return NULL;
+    if (str)
+    {
+        new->str = strdup(str);
+        new->len = strlen(str);
+        if(*head)
+        {
+            while(tmp->next)
+            {
+                tmp = tmp->next;
+            }
+            tmp->next = new;
+        }
+        else
+        {
+            *head = new;
+        }
+    }
+    else
+    {
+        free(new);
+        return NULL;
+    }
+    return (new);
+}

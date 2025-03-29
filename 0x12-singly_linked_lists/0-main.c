@@ -38,3 +38,16 @@ int main(void)
     free(new);
     return (0);
 }
+size_t print_list(const list_t *h)
+{
+    int size = 0;
+    do {
+        if (!h->str)
+            printf("[0] (nil)\n");
+        else
+            printf("[%d] %s\n", h->len, h->str);
+        h = h->next;
+        size++;
+    } while (h);
+    return (size);
+}

@@ -20,3 +20,15 @@ int main(void)
     printf("%u\n", n);
     return (0);
 }
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
+{
+    int ret = n ^ m, check = 0, ret2 = ret;
+    while (ret2 > 0)
+    {
+        ret = ret2;
+        if (ret & 1)
+            check++;
+        ret2 = ret >> 1;
+    }
+    return check;
+}

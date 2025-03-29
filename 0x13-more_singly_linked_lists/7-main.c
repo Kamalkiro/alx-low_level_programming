@@ -23,9 +23,21 @@ int main(void)
     add_nodeint_end(&head, 402);
     add_nodeint_end(&head, 1024);
     print_listint(head);
-    node = get_nodeint_at_index(head, 5);
+    node = get_nodeint_at_index(head, 25);
     printf("%d\n", node->n);
     print_listint(head);
     free_listint2(&head);
     return (0);
+}
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
+{
+    unsigned int i = 0;
+    listint_t *point = head;
+
+    while(i < index && point->next)
+    {
+        point = point->next;
+        i++;
+    }
+    return (point);
 }

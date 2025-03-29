@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def func1():
 	pwd = input("enter ur name: ")
-	password = input("and ur password")
+	password = input("and ur password : ")
 	print("Ur name is : ", pwd)
 	return password
 passw = func1()

@@ -66,3 +66,38 @@ int main(void)
     print_listint(head);
     return (0);
 }
+int delete_nodeint_at_index(listint_t **head, unsigned int index)
+{
+    listint_t *cp = *head, *tmp = *head;
+    int idx = index, i = 0;
+
+    if (head == NULL || *head == NULL)
+        return (-1);
+
+    if (index == 0 && !cp->next && cp)
+    {
+
+        *head = cp->next;
+        free(cp);
+        return -1;
+    }
+    while (i < idx)
+    {
+        tmp = cp;
+        cp = cp->next;
+        i++;
+    }
+    if (cp == *head && cp->next)
+    {
+        tmp = cp;
+        cp = cp->next;
+        *head = cp;
+        free(tmp);
+    }
+    else
+    {
+        tmp->next = cp->next;
+        free(cp);
+    }
+    return 1;
+}

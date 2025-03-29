@@ -21,3 +21,11 @@ int main(void)
     printf("%lu\n", n);
     return (0);
 }
+int clear_bit(unsigned long int *n, unsigned int index)
+{
+    if (index > sizeof(n) * 8)
+        return 0;
+    if (*n & 1L << index)
+        *n = (*n ^ 1 << index);
+    return (*n);
+}

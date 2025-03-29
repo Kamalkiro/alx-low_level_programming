@@ -36,3 +36,56 @@ int main(void)
     print_listint_safe(head);
     return (0);
 }
+size_t print_listint_safe(const listint_t *head)
+{
+	size_t x, j = 0, max = 0, maxxine = 0, flag = 0;
+	long int l;
+    void *ptr;
+    int store;
+    const listint_t *cp = head, *helper = head;
+
+    helper = helper->next;
+    while (cp && max < 200)
+    {
+        helper = cp->next;
+        maxxine = 0;
+        while (helper && maxxine < 200)
+        {
+            if (helper == cp)
+            {
+                j++;
+                break;
+            }
+            helper = helper->next;
+            maxxine++;
+        }
+        cp = cp->next;
+        max++;
+    }
+
+	for (x = 0; head != NULL; x++)
+	{
+		l = head - head->next;
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (l > 0)
+			head = head->next;
+		else if (l <= 0 && j > 0)
+		{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+            x++;
+			break;
+		}
+        else
+        {
+            store = head->next->n;
+            ptr = (void *)head->next;
+            flag++;
+            head = head->next;
+        }
+	}
+    if (flag > 0)
+    {
+        printf("-> [%p] %d\n", ptr, store);
+    }
+	return (x);
+}

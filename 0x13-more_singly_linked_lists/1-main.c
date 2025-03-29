@@ -30,3 +30,15 @@ int main(void)
     free(new);
     return (0);
 }
+size_t listint_len(const listint_t *h)
+{
+    int ret = 0;
+    if(!h)
+        return 0;
+    while (h)
+    {
+        h = h->next;
+        ret++;
+    }
+    return (ret);
+}

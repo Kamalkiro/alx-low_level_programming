@@ -22,3 +22,26 @@ int main(void)
     head = NULL;
     return (0);
 }
+void free_list(list_t *head)
+{
+    int count = 0, i = 0;
+    list_t *scroll = head;
+    if (head)
+    {
+        while(scroll)
+        {
+            free(scroll->str);
+            scroll = scroll->next;
+            count++;
+        }
+    }
+    list_t *temp = head;
+    while(i < count)
+    {
+        scroll = head->next;
+        free(head->next);
+        head = scroll;
+        i++;
+    }
+    free(temp);
+}
